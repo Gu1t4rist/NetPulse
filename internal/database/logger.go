@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 	"time"
-	"netpulse/internal/speedtest"
+	"github.com/Gu1t4rist/NetPulse/internal/speedtest"
 )
 
 func LogResult(result *speedtest.Result) error {
