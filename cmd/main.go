@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"netpulse/internal/speedtest"
-	"netpulse/internal/database"
+	"github.com/Gu1t4rist/NetPulse/internal/speedtest"
+	"github.com/Gu1t4rist/NetPulse/internal/database"
+	"github.com/Gu1t4rist/NetPulse/internal/api"
 )
 
 func main() {

@@ -12,23 +12,23 @@ type Result struct {
 }
 
 func RunSpeedtest() (*Result, error) {
-	user, _ := speedtest.FetchUserInfo()
-	serverList, _ := speedtest.FetchServerList(user)
+	// user, _ := speedtest.FetchUserInfo()
+	serverList, _ := speedtest.FetchServers()
 	targetServer, _ := serverList.FindServer([]int{})
 
-	err := targetServer[0].DownloadTest(false)
+	err := targetServer[0].DownloadTest()
 	if err != nil {
 		return nil, err
 	}
 
-	err = targetServer[0].UploadTest(false)
+	err = targetServer[0].UploadTest()
 	if err != nil {
 		return nil, err
 	}
 
 	result := &Result{
-		DownloadMbps: targetServer[0].DLSpeed,
-		UploadMbps: targetServer[0].ULSpeed,
+		DownloadMbps: targetServer[0].DLSpeed.Mbps(),
+		UploadMbps: targetServer[0].ULSpeed.Mbps(),
 		PingMs: targetServer[0].Latency.Seconds() * 1000,
 	}
 
